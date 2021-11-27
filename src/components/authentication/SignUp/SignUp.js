@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import './SignUp.css';
 import useAuth from './../../../hook/useAuth';
+import { Alert, Button } from 'react-bootstrap';
 
 const SignUp = () => {
 
 
     const [loginData, setLoginData] = useState({});
     const history = useHistory();
-    const { user, registerUser, isLoading } = useAuth();
+    const {  registerUser, user } = useAuth();
 
     const handleOnBlur = e => {
         const field = e.target.name;
@@ -19,32 +20,61 @@ const SignUp = () => {
         setLoginData(newLoginData);
     }
     const handleLoginSubmit = e => {
-        if (loginData.password !== loginData.password2) {
-            alert('Your password did not match');
-            return;
-        }
+        // if (loginData.password !== loginData.password2) {
+        //     alert('Your password did not match');
+        //     return;
+        // }
         registerUser(loginData.email, loginData.password, loginData.name, history);
-        
+
         e.preventDefault();
     }
 
     return (
-        <div className="container ">
-            <h1>Sign Up </h1>
+        <div className="sinUpComponent">
+            <div className="SignUp">
+                <div className="row ">
+                    <div className="col-md-8 text-center signUpContainer">
+                        <h1>Welcome</h1>
+                        <p>Log in to you account here.</p>
+                        <form onSubmit={handleLoginSubmit}>
+                            <div class="row my-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="name" onBlur={handleOnBlur}/>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"   onBlur="handleOnBlur"/>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                               
+                               <div class="col-12">
+                                   <input type="text" class="form-control" id="phone" placeholder='Phone' name="phone" onBlur="handleOnBlur" />
+                               </div>
+                           </div>
+                            <div class="row mb-3">
+                               
+                                <div class="col-12">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder='Email' name="email" onBlur={handleOnBlur}/>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                
+                                <div class="col-12">
+                                    <input type="password" class="form-control" id="inputPassword3" placeholder='Password' name="password" onBlur={handleOnBlur}/>
+                                </div>
+                            </div>
 
-            <div className=" row">
-                <div className="col-md-8">
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="First name" aria-label="First name"/>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"/>
-                        </div>
+                            <Button className="py-2 px-5" variant="info" type="submit">Register</Button>
+                            {/* {user?.email && <Alert severity="success">User Created successfully!</Alert>} */}
+                            
+
+                        </form>
+                        
                     </div>
-                </div>
-                <div className="col-md-4">
-                    <h1>Already Have An Account</h1>
+                    <div className="col-md-4 signUpNow mt-3">
+                        <div><h6 >Don't have an account? </h6></div>
+                        <div><p>Sign Up</p></div>
+                    </div>
                 </div>
             </div>
         </div>
