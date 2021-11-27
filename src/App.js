@@ -1,6 +1,12 @@
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import AddProduct from './components/AddProduct/AddProduct';
+import SignIn from './components/authentication/SignIn/SignIn';
+
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import './App.css';
 import AuthProvider from './context/AuthProvider';
 import SignUp from './components/authentication/SignUp/SignUp';
 import Home from './pages/Home/Home';
@@ -9,6 +15,19 @@ import SignIn from './components/authentication/SignIn/SignIn';
 function App() {
   return (
     <div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/signIn">
+            <SignIn></SignIn>
+          </Route>
+          <Route path="/addProduct">
+            <AddProduct></AddProduct>
+          </Route>
+        </Switch>
+      </BrowserRouter>
 
       <AuthProvider>
 
@@ -40,10 +59,8 @@ function App() {
 
       </AuthProvider>
 
-    
-
     </div>
-  );  
+  );
 }
 
 export default App;
