@@ -1,8 +1,7 @@
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './App.css';
-import AddProduct from './components/AddProduct/AddProduct';
-import SignIn from './components/authentication/SignIn/SignIn';
+// import { BrowserRouter, Switch, Route } from 'react-router-dom';
+// import './App.css';
+// import SignIn from './components/authentication/SignIn/SignIn';
 
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -11,11 +10,13 @@ import AuthProvider from './context/AuthProvider';
 import SignUp from './components/authentication/SignUp/SignUp';
 import Home from './pages/Home/Home';
 import SignIn from './components/authentication/SignIn/SignIn';
+import AddProduct from './components/AddProduct/AddProduct';
+
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Switch>
           <Route exact path="/">
             <Home></Home>
@@ -27,7 +28,7 @@ function App() {
             <AddProduct></AddProduct>
           </Route>
         </Switch>
-      </BrowserRouter>
+      </BrowserRouter> */}
 
       <AuthProvider>
 
