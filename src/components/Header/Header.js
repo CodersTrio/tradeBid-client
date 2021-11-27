@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
@@ -9,9 +10,9 @@ const Header = () => {
                 <Navbar.Brand href="#home">Trade Bid</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
+                    <Nav className="ms-auto menu">
+                        <Nav.Link><Link style={{textDecoration: 'none', color:'black'}} to="/">Home</Link></Nav.Link>
+                        <Nav.Link><Link style={{textDecoration: 'none', color:'black'}} to="/signIn">Sign in</Link></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

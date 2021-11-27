@@ -1,0 +1,10 @@
+@media(max-width: 668px){
+    .productsCard{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: 70%;
+        /* margin: 0; */
+    }
+}

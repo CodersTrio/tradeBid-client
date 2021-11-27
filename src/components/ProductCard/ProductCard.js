@@ -4,16 +4,18 @@ import './ProductCard.css'
 const url  = 'https://thumbs.dreamstime.com/b/dazzling-diamond-black-background-dazzling-diamond-black-background-design-174016948.jpg'
 
 
-const ProductCard = () => {
+const ProductCard = (props) => {
+    console.log(props.product);
+    const {name, lowestBid, imageURL} = props.product;
     return (
-        <div className="card">
-            <img src={url} alt="" className='card-img'  />
-            <h1 className="card-title"> Diamond Ring </h1>
+        <div className="card" >
+            <img src={imageURL} alt="" className='card-img'  />
+            <h1 className="card-title"> {name} </h1>
 
             <div className="d-flex justify-content-around mt-2">
                 <div className=''>
-                    <h6> Current Bid </h6>
-                    <h6> $152 </h6>
+                    <h6> Lowest Bid </h6>
+                    <h6> ${lowestBid} </h6>
                 </div>
                 <div className=''>
                     <h6> Total Bids </h6>

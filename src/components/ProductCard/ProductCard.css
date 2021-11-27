@@ -8,8 +8,13 @@
 
 .card{
     margin: 20px;
-    width: 300px;
+    width: 25%;
+    transition: all 0.5s ease;
     /* height: 430px; */
+}
+
+.card:hover{
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
 .heart-icon{

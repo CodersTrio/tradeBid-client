@@ -11,6 +11,7 @@ import SignUp from './components/authentication/SignUp/SignUp';
 import Home from './pages/Home/Home';
 import SignIn from './components/authentication/SignIn/SignIn';
 import AddProduct from './components/AddProduct/AddProduct';
+import ProductCard from './components/ProductCard/ProductCard';
 
 
 function App() {
@@ -51,6 +52,10 @@ function App() {
             </Route>
             <Route path="/signIn">
               <SignIn></SignIn>
+
+            </Route>
+            <Route path="/products">
+              <ProductCard></ProductCard>
 
             </Route>
 
