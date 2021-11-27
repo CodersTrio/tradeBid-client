@@ -1,21 +1,31 @@
 .sinInComponent{
-    width: 70%;
-    margin: 0 auto;
-}
-.SignIn{
-    border: 2px solid black;
-    padding: 50px;  
-}
-
-.emailInp, .passwordInp{
-    width: 80%;  
-    padding: 10px;
-    background-color:rgba(0, 0, 0, 0);    
-    border: none;    
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 .signInContainer{
-    position: relative; 
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 20px 20px 60px #d9d9d9,
+    -20px -20px 60px #ffffff;
+
 }
+
+.inputFields{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.emailInp, .passwordInp{
+    width: 40vw;  
+    padding: 10px;   
+    border: 1px solid #666666;    
+}
+
 
 .signUpNow{
     display: flex ;
