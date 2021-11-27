@@ -37,7 +37,7 @@ const SignIn = () => {
                         <input className="passwordInp" type="password" name="password" placeholder="Enter your password" onChange={handleOnChange}/>
                         <br /><br />
                         <Button className="py-2  px-5" variant="info" type="submit">Log in</Button> 
-                        {user?.email && <Alert severity="success">Login successfully!</Alert>}
+                        {/* {user?.email && <Alert severity="success">Login successfully!</Alert>} */}
                         </form>
                     </div>
                     <div className="col-md-4 signUpNow" style={{padding: '20px', backgroundColor:'cyan'}}>

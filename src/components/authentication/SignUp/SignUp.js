@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import './SignUp.css';
 import useAuth from './../../../hook/useAuth';
@@ -73,7 +73,7 @@ const SignUp = () => {
                     </div>
                     <div className="col-md-4 signUpNow mt-3">
                         <div><h6 >Don't have an account? </h6></div>
-                        <div><p>Sign Up</p></div>
+                        <div><p><Link to="/signIn">Sign In</Link></p></div>
                     </div>
                 </div>
             </div>
