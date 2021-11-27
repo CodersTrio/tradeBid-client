@@ -3,14 +3,15 @@ import { Link, useHistory } from 'react-router-dom';
 
 import './SignUp.css';
 import useAuth from './../../../hook/useAuth';
-import { Alert, Button } from 'react-bootstrap';
+import { Alert, Button, DropdownButton, Dropdown } from 'react-bootstrap';
 
 const SignUp = () => {
 
-
+    const [role, setRole] = useState('Role');
     const [loginData, setLoginData] = useState({});
     const history = useHistory();
-    const {  registerUser, user } = useAuth();
+    const { registerUser, user } = useAuth();
+    console.log(loginData);
 
     const handleOnBlur = e => {
         const field = e.target.name;
@@ -24,7 +25,8 @@ const SignUp = () => {
         //     alert('Your password did not match');
         //     return;
         // }
-        registerUser(loginData.email, loginData.password, loginData.name, history);
+        
+        registerUser(loginData.email, loginData.password, loginData.name, loginData.mobile, role, history);
 
         e.preventDefault();
     }
@@ -38,38 +40,43 @@ const SignUp = () => {
                         <p>Log in to you account here.</p>
                         <form onSubmit={handleLoginSubmit}>
                             <div class="row my-3">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="name" onBlur={handleOnBlur}/>
+                                <div class="">
+                                    <input type="text" class="form-control" placeholder="Full Name" aria-label="First name" name="name" onBlur={handleOnBlur} />
                                 </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"   onBlur="handleOnBlur"/>
+                               
+                            </div>
+                            <div class="row mb-3">
+
+                                <div class="col-12">
+                                    <input type="text" class="form-control" id="phone" placeholder='Phone' name="phone" onBlur={handleOnBlur} />
                                 </div>
                             </div>
                             <div class="row mb-3">
-                               
-                               <div class="col-12">
-                                   <input type="text" class="form-control" id="phone" placeholder='Phone' name="phone" onBlur="handleOnBlur" />
-                               </div>
-                           </div>
-                            <div class="row mb-3">
-                               
+
                                 <div class="col-12">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder='Email' name="email" onBlur={handleOnBlur}/>
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder='Email' name="email" onBlur={handleOnBlur} />
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                
+
                                 <div class="col-12">
-                                    <input type="password" class="form-control" id="inputPassword3" placeholder='Password' name="password" onBlur={handleOnBlur}/>
+                                    <input type="password" class="form-control" id="inputPassword3" placeholder='Password' name="password" onBlur={handleOnBlur} />
                                 </div>
                             </div>
 
-                            <Button className="py-2 px-5" variant="info" type="submit">Register</Button>
-                            {/* {user?.email && <Alert severity="success">User Created successfully!</Alert>} */}
-                            
+                            <div className='d-flex justify-content-between'>
+
+                            <DropdownButton variant='info' id="dropdown-basic-button" title={role}>
+                            <Dropdown.Item onClick={()=>setRole('Seller')} >Seller</Dropdown.Item>
+                            <Dropdown.Item onClick={()=>setRole('Buyer')}  >Buyer</Dropdown.Item>
+                            </DropdownButton>
+
+                            <Button className="py-2 px-5" variant="info" type ="submit">Register</Button>
+                        {/* {user?.email && <Alert severity="success">User Created successfully!</Alert>} */}
+                            </div>
 
                         </form>
-                        
+
                     </div>
                     <div className="col-md-4 signUpNow mt-3">
                         <div><h6 >Don't have an account? </h6></div>

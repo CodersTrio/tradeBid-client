@@ -4,6 +4,7 @@ import {
     signInWithPopup, sendEmailVerification, updateProfile, signOut
 } from "firebase/auth";
 import initializeFirebase from '../components/authentication/Firebase/firebase.init';
+import axios from 'axios';
 
 // initialize firebase app
 initializeFirebase();
@@ -14,14 +15,26 @@ const useFirebase = () => {
     const [authError, setAuthError] = useState('');
     // const [admin, setAdmin] = useState(false);
 
+    const addUserToDB = (user) =>{
+        axios.post('https://serene-savannah-96392.herokuapp.com/addUser', user)
+        .then(res=>{
+            console.log(res.data);
+        })
+    }
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
-    const registerUser = (email, password, name, history) => {
+    const registerUser = (email, password, name, mobile, role, history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                addUserToDB({
+                    email:email,
+                    name:name,
+                    mobile:mobile,
+                    role:role    
+                })
                 setAuthError('');
                 const newUser = { email, displayName: name };
                 setUser(newUser);
