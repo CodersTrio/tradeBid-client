@@ -4,6 +4,8 @@ import './App.css';
 import AuthProvider from './context/AuthProvider';
 import SignUp from './components/authentication/SignUp/SignUp';
 
+import Home from './pages/Home/Home';
+
 function App() {
   return (
     <div>
@@ -34,8 +36,10 @@ function App() {
 
       </AuthProvider>
 
+      <Home /> 
+
     </div>
-  );
+  );  
 }
 
 export default App;

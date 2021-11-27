@@ -1,0 +1,25 @@
+.sinInComponent{
+    width: 70%;
+    margin: 0 auto;
+}
+.SignIn{
+    border: 2px solid black;
+    padding: 50px;  
+}
+
+.emailInp, .passwordInp{
+    width: 80%;  
+    padding: 10px;
+    background-color:rgba(0, 0, 0, 0);    
+    border: none;    
+}
+.signInContainer{
+    position: relative; 
+}
+
+.signUpNow{
+    display: flex ;
+    flex-direction: column ;
+    align-items: center;
+    justify-content: center;  
+}
