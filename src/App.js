@@ -41,6 +41,10 @@ function App() {
               <Home></Home>
 
             </Route>
+            <Route exact path="/addProduct">
+              <AddProduct></AddProduct>
+
+            </Route>
             <Route path="/signUp">
               <SignUp></SignUp>
 
