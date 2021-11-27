@@ -1,10 +1,10 @@
 import React from 'react';
-import SignIn from '../../components/authentication/SignIn/SignIn'; 
+
 
 const Home = () => {
     return (
         <div>
-            <SignIn />
+            <h1>Hello Home</h1>
         </div>
     );
 };
