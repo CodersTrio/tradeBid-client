@@ -11,6 +11,7 @@ import SignUp from './components/authentication/SignUp/SignUp';
 import Home from './pages/Home/Home';
 import SignIn from './components/authentication/SignIn/SignIn';
 import AddProduct from './components/AddProduct/AddProduct';
+import ReviewForm from './components/ReviewForm/ReviewForm';
 
 
 function App() {
@@ -48,6 +49,10 @@ function App() {
             <Route path="/signIn">
               <SignIn></SignIn>
 
+            </Route>
+
+            <Route path="/reviewForm">
+                <ReviewForm />
             </Route>
 
 
